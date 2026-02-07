@@ -1,4 +1,4 @@
-class task {
+class Task {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -8,7 +8,7 @@ class task {
   }
 }
 
-class project {
+class Project {
   constructor(name) {
     this.name = name;
     this.tasks = [];

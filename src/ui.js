@@ -37,7 +37,7 @@ function loadTask(task, idx, projectDiv) {
 }
 
 function loadProject(proj, idx) {
-  // ui
+  // u
   const projDiv = document.createElement("div");
   projDiv.className = "project";
   projDiv.dataset.idx = idx;

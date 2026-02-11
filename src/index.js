@@ -23,13 +23,13 @@ board.addEventListener("click", (e) => {
       renderBoard();
       break;
 
-    case "delete-task":
+    case "del-task":
       store.delTask(projectIdx, taskIdx);
       renderBoard();
       break;
 
-    case "edit-task":
-      store.updateTask(projectIdx, taskIdx, {});
+    case "del-project":
+      store.delProject(projectIdx);
       renderBoard();
       break;
 
@@ -154,23 +154,47 @@ function loadTask(task, idx, projectDiv) {
 
   infoDiv.append(title, desc);
 
+  // del div
+  const delDiv = document.createElement("div");
+  delDiv.className = "task-del";
+
+  const delBtn = document.createElement("button");
+  delBtn.innerText = "🗑";
+  delBtn.dataset.action = "del-task";
+  delDiv.appendChild(delBtn);
+
   // assemble task
-  taskDiv.append(completeDiv, infoDiv);
+  taskDiv.append(completeDiv, infoDiv, delDiv);
   projectDiv.appendChild(taskDiv);
 }
 
 function loadProject(proj, idx) {
-  // ui
   const projDiv = document.createElement("div");
   projDiv.className = "project";
   projDiv.dataset.projectIdx = idx;
+
+  // HEADER WRAPPER
+  const headerDiv = document.createElement("div");
+  headerDiv.className = "project-header";
 
   const projName = document.createElement("p");
   projName.innerText = proj.name;
   projName.dataset.field = "name";
   projName.dataset.action = "edit-field";
-  projDiv.appendChild(projName);
 
+  const delDiv = document.createElement("div");
+  delDiv.className = "project-del";
+
+  const delBtn = document.createElement("button");
+  delBtn.innerText = "🗑";
+  delBtn.dataset.action = "del-project";
+
+  delDiv.appendChild(delBtn);
+
+  headerDiv.append(projName, delDiv); // ← key change
+  projDiv.appendChild(headerDiv);
+
+  // Add task button
   const addBtn = document.createElement("button");
   addBtn.innerText = "Add task";
   addBtn.dataset.action = "add-task";
@@ -182,7 +206,6 @@ function loadProject(proj, idx) {
 
   board.appendChild(projDiv);
 
-  // tasks
   proj.tasks.forEach((task, idx) => {
     loadTask(task, idx, projDiv);
   });

@@ -20,3 +20,5 @@ class Project {
     this.tasks = [];
   }
 }
+
+export { Task, Project };

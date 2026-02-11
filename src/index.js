@@ -1,4 +1,4 @@
-import { app } from "./app.js";
+import app from "./app.js";
 const board = document.querySelector(".board");
 const store = app();
 
@@ -63,3 +63,5 @@ function renderBoard() {
     loadProject(proj, idx);
   });
 }
+
+renderBoard();

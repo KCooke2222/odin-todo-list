@@ -1,4 +1,6 @@
-function app() {
+import { Task, Project } from "./model.js";
+
+export default function app() {
   const STORAGE_KEY = "projects";
   const projects = [new Project("Tasks")];
 

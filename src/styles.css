@@ -1,12 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 body {
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
 }
 
 .board {
   display: flex;
-  min-height: 100vh;
+  align-items: flex-start;
   gap: 20px;
+  height: 100vh;
+  margin-left: 150px;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 20px 20px 20px 20px; /* right gap here */
+  box-sizing: border-box;
 }
 
 .board-controls {
@@ -14,7 +23,10 @@ body {
   display: flex;
   justify-content: center;
   background-color: rgb(153, 152, 150);
-  flex-shrink: 0;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
 
 .board-controls button {
@@ -25,9 +37,9 @@ body {
 
 .project {
   width: 250px;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
   background-color: rgb(105, 102, 102);
-  margin: 20px 0px;
   padding: 5px 20px;
   border-radius: 10px;
   flex-shrink: 0;
@@ -42,16 +54,23 @@ body {
 }
 
 .task-info {
-  height: 50px;
+  flex: 1;
+  min-width: 0;
+  min-height: 50px; /* or keep height if you want fixed */
 }
 
 .task-title,
 .task-desc {
+  display: block;
+  width: 100%;
   min-height: 1.2em;
-  padding: 2px 0;
   cursor: text;
 }
 
+.task-desc {
+  font-size: 0.92rem;
+  color: rgba(32, 32, 32, 0.78);
+}
 .task-title:empty::before,
 .task-desc:empty::before {
   content: attr(data-placeholder);

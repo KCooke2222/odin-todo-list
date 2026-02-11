@@ -9,3 +9,6 @@ Logic
 
 Interface
 Projects contain tasks in vertical columns can scroll through them with bottom scroll bar
+
+Note:
+Does not include due date or priority in ui currently

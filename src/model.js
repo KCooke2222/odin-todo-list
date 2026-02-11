@@ -1,21 +1,21 @@
 class Task {
-  constructor(
-    title,
+  constructor({
+    title = "",
     description = "",
     dueDate = null,
     priority = false,
     completed = false,
-  ) {
+  } = {}) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.completed = false;
+    this.completed = completed;
   }
 }
 
 class Project {
-  constructor(name) {
+  constructor({ name } = {}) {
     this.name = name;
     this.tasks = [];
   }

@@ -1,0 +1,60 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.board {
+  display: flex;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.board-controls {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(153, 152, 150);
+  flex-shrink: 0;
+}
+
+.board-controls button {
+  width: 100px;
+  height: 40px;
+  margin: 20px;
+}
+
+.project {
+  width: 250px;
+  height: 500px;
+  background-color: rgb(105, 102, 102);
+  margin: 20px 0px;
+  padding: 5px 20px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  gap: 10px;
+}
+
+.task-info {
+  height: 50px;
+}
+
+.task-title,
+.task-desc {
+  min-height: 1.2em;
+  padding: 2px 0;
+  cursor: text;
+}
+
+.task-title:empty::before,
+.task-desc:empty::before {
+  content: attr(data-placeholder);
+  color: #888;
+  pointer-events: none;
+}
